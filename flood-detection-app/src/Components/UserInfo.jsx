@@ -7,7 +7,7 @@ export default function Userinfo({ navigation }) {
 
         navigation.reset({
             index: 0,
-            routes: [{ name: 'Home' }],
+            routes: [{ name: 'HomeTabs' }],
         });
     };
 
@@ -22,7 +22,7 @@ export default function Userinfo({ navigation }) {
                 <Text style={styles.body}>Set Your Location</Text>
                 <TextInput placeholder="Enter Your Location" style={styles.txtinputs} />
                 <TouchableOpacity style={styles.buttonContainer} onPress={() => {
-                    navigation.navigate('Home')
+                    navigation.navigate('HomeTabs')
                     handleGetStarted()
                 }}>
                     <Text style={styles.buttonText}>Let's Go</Text>

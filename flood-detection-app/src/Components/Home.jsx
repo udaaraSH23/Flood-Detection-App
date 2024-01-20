@@ -1,10 +1,27 @@
 import React from "react";
-import { View,Text} from "react-native";
+import { View,Text,StyleSheet,SafeAreaView,StatusBar} from "react-native";
 
-export default function Home(){
-    return(
-        <View>
-            <Text>Home Page</Text>
+import Header from "./Header";
+
+
+
+export default function Home() {
+    return (
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+        <StatusBar backgroundColor="blue" barStyle="light-content" />
+        <Header/>
+        <View style={styles.container}>
+          <Text>Home Page Content</Text>
         </View>
-    )
-}
+      </SafeAreaView>
+    );
+  }
+  
+  const styles = {
+    
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  };
