@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const Header = () => {
   const navigation = useNavigation();
   const currentRoute = navigation.getState().routes[navigation.getState().index].name;
-  console.log(currentRoute)
+  
 
   return (
     <View style={style.container}>
