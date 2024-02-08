@@ -35,20 +35,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textStyle: {
+    color:"#0F1035",
     fontSize: 30,
     margin: 20,
     padding: 10,
     textAlign: 'center',
+    fontFamily: 'Roboto',
   },
   buttonContainer: {
-    width: '80%',
+    width: '60%',
     marginTop: 100,
-    backgroundColor: 'blue',
+    backgroundColor: '#7FC7D9',
     padding: 10,
     borderRadius: 20,
+    
   },
   buttonText: {
-    color: 'white',
+    color: '#0F1035',
     textAlign: 'center',
     fontWeight: 'bold',
   },

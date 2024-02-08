@@ -11,6 +11,8 @@ import UserInfo from "./src/Components/UserInfo";
 import Home from "./src/Components/Home";
 import Imergency from "./src/Components/Imergency";
 import Maps from "./src/Components/Maps";
+import Settings from "./src/Components/Settings";
+import About from "./src/Components/About";
 
 //Creating stacks for navigation
 const Stack = createNativeStackNavigator();
@@ -34,7 +36,8 @@ const BottomTabNavigator = () => {
           iconName = 'map-marker';
           color ='green'
         } else if (route.name === 'Home') {
-          iconName = 'home'; 
+          iconName = 'home';
+          color ='#7FC7D9' 
         } else if (route.name === 'Imergency') {
           iconName = 'exclamation-triangle';
           color='red'; 
@@ -74,6 +77,16 @@ export default function App() {
               component={BottomTabNavigator}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="Settings"
+              component={Settings}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="About"
+              component={About}
+              options={{ headerShown: false }}
+            />
           </>
         ) : (
           <>
@@ -92,6 +105,17 @@ export default function App() {
               component={BottomTabNavigator}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="Settings"
+              component={Settings}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="About"
+              component={About}
+              options={{ headerShown: false }}
+            />
+
           </>
         )}
       </Stack.Navigator>
