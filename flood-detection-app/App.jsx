@@ -6,6 +6,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
+import { UserIdProvider } from "./src/Components/UserIdProvider";
 import StartUp from "./src/Components/StartUp";
 import UserInfo from "./src/Components/UserInfo";
 import Home from "./src/Components/Home";
@@ -68,6 +70,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={style.container}>
+    <UserIdProvider>
     <NavigationContainer>
       <Stack.Navigator>
         {isStarted ? (
@@ -120,6 +123,7 @@ export default function App() {
         )}
       </Stack.Navigator>
     </NavigationContainer>
+    </UserIdProvider>
     </SafeAreaView>
   );
 }

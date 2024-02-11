@@ -12,7 +12,7 @@ export default function Imergency(){
           <StatusBar backgroundColor="blue" barStyle="light-content" />
           <Header/>
           <View style={styles.container}>
-            <Text>Home Page Content</Text>
+            <Text>Imergency</Text>
           </View>
         </SafeAreaView>
       );
