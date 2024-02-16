@@ -9,6 +9,7 @@ import db from "../../db/fireStoredb";
 
 
 import Header from "./Header";
+import DialogPrompt from "./DialogPrompt";
 
 
 
@@ -111,10 +112,9 @@ export default function Settings() {
           <Text style={styles.text}>{userData.Name}</Text>
           <Text style={styles.text}>{userData.mbNo}</Text>
           <Text style={styles.text}>{userData.location}</Text>
-          <TouchableOpacity style={styles.buttonContainer} onPress={() =>handleSettingsPress()}>
-            <Text>Set</Text>
-          </TouchableOpacity>
-
+          <DialogPrompt
+            title="Set the name"
+            placeholder= "Enter new name"/>
         </View>
         <View style={styles.tbutttons}>
           <ToggleSwitch
