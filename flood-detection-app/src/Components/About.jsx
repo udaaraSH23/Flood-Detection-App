@@ -12,7 +12,10 @@ export default function About(){
           <StatusBar backgroundColor="blue" barStyle="light-content" />
           <Header/>
           <View style={styles.container}>
-            <Text>Home Page Content</Text>
+            <Text style={styles.head}>Flood Sentinal</Text>
+            <Text style={styles.body}>Developed by DSStudio</Text>
+            <Text style={styles.body}>version 1.0</Text>
+            <Text style={styles.body}>@Copyright Udara Shanuka</Text>
           </View>
         </SafeAreaView>
       );
@@ -25,4 +28,14 @@ export default function About(){
         justifyContent: 'center',
         alignItems: 'center',
       },
+      head:{
+        fontSize:36,
+        fontWeight:'bold',
+        margin:20,
+      },
+      body:{
+        fontSize:16,
+        margin:10,
+      }
+
     };

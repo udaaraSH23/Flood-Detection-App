@@ -15,6 +15,7 @@ import Imergency from "./src/Components/Imergency";
 import Maps from "./src/Components/Maps";
 import Settings from "./src/Components/Settings";
 import About from "./src/Components/About";
+import EditUser from "./src/Components/EditUser";
 
 //Creating stacks for navigation
 const Stack = createNativeStackNavigator();
@@ -90,6 +91,11 @@ export default function App() {
               component={About}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="EditUser"
+              component={EditUser}
+              options={{ headerShown: false }}
+            />
           </>
         ) : (
           <>
@@ -116,6 +122,11 @@ export default function App() {
             <Stack.Screen
               name="About"
               component={About}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="EditProfile"
+              component={EditUser}
               options={{ headerShown: false }}
             />
 

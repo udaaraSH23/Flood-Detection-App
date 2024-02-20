@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore} from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDxNW7QSsQ2QTXsMkPnql3ZQf9LXpvqIlM",
-  authDomain: "waterlevel-afb.firebaseapp.com",
-  projectId: "waterlevel-afb",
-  storageBucket: "waterlevel-afb.appspot.com",
-  messagingSenderId: "441576475103",
-  appId: "1:441576475103:web:1e04f13dc35b0dc1359c6a"
-};
+  apiKey: "AIzaSyDGHkmh9TbZqKP54zElSVGcuzxRNoZsfZo",
+  authDomain: "flood-level-e24aa.firebaseapp.com",
+  projectId: "flood-level-e24aa",
+  storageBucket: "flood-level-e24aa.appspot.com",
+  messagingSenderId: "327233330295",
+  appId: "1:327233330295:web:67bb2ed388dcd63d22ba72"
+};;
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

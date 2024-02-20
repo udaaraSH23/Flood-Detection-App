@@ -30,8 +30,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        backgroundColor:'yellow',
         paddingHorizontal: 20,
         paddingVertical: 10,
+        margin:10,
     },
     text: {
         fontSize: 16,
