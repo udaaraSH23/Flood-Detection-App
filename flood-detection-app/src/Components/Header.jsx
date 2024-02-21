@@ -29,10 +29,7 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 16,
     backgroundColor: '#FFF',
-    borderWidth: 2,
-    borderColor: 'black',
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    elevation:5,
   },
 })
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const WaterLevelBar = () => {
-  const [waterLevel, setWaterLevel] = useState(20); // Replace with your logic to fetch the water level from the database
+  const [waterLevel, setWaterLevel] = useState(100); // Replace with your logic to fetch the water level from the database
 
 //   useEffect(() => {
 //     // Simulate fetching water level from the database (replace this with your actual data fetching logic)
@@ -20,15 +20,17 @@ const WaterLevelBar = () => {
   return (
     <View style={styles.container}>
       <View style={[styles.bar, { height: `${waterLevel}%` }]} />
-      <Text style={styles.waterLevelText}>{waterLevel}%</Text>
+      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     alignItems: 'center',
-    marginTop: 20,
+    justifyContent:'center',
+    
   },
   bar: {
     backgroundColor: 'blue',

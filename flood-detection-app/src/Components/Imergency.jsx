@@ -23,17 +23,17 @@ export default function Imergency() {
       <View style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.Header}>Need help ? </Text>
-          <Text style={styles.Header}>Call right now</Text>
+          <Text style={styles.HeaderSub}>Call right now</Text>
           <View style={styles.btncontainer}>
-            <TouchableOpacity style={styles.circleBtn}>
-              <Text>911</Text>
+            <TouchableOpacity onPress={() => openDialer("119")} style={styles.circleBtn} >
+              <Text style={styles.circleTxt}>119</Text>
             </TouchableOpacity>
           </View>
         </View>
         <View style={styles.bottom}>
-          <Text>Other calls</Text>
-          <View>
-            <View style={styles.container}>
+          <Text style={styles.btmHeadTxt}>Other calls</Text>
+          <View style={styles.otherBtn}>
+            <View style={styles.tilescontainer}>
               {/* Army Tile */}
               <TouchableOpacity
                 style={styles.tile}
@@ -46,7 +46,7 @@ export default function Imergency() {
                 <Text style={styles.tileText}>Army</Text>
               </TouchableOpacity>
 
-              {/* <TouchableOpacity
+              <TouchableOpacity
                 style={styles.tile}
                 onPress={() => openDialer("456")}
               >
@@ -55,10 +55,10 @@ export default function Imergency() {
                   style={styles.icon}
                 />
                 <Text style={styles.tileText}>Police</Text>
-              </TouchableOpacity> */}
+              </TouchableOpacity>
 
               {/* Navy Tile */}
-              {/* <TouchableOpacity
+              <TouchableOpacity
                 style={styles.tile}
                 onPress={() => openDialer("789")}
               >
@@ -67,7 +67,43 @@ export default function Imergency() {
                   style={styles.icon}
                 />
                 <Text style={styles.tileText}>Navy</Text>
-              </TouchableOpacity> */}
+              </TouchableOpacity>
+            </View>
+            <View style={styles.tilescontainer}>
+              {/* Army Tile */}
+              <TouchableOpacity
+                style={styles.tile}
+                onPress={() => openDialer("123")}
+              >
+                <Image
+                  source={require("../../assets/favicon.png")}
+                  style={styles.icon}
+                />
+                <Text style={styles.tileText}>Army</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.tile}
+                onPress={() => openDialer("456")}
+              >
+                <Image
+                  source={require("../../assets/favicon.png")}
+                  style={styles.icon}
+                />
+                <Text style={styles.tileText}>Police</Text>
+              </TouchableOpacity>
+
+              {/* Navy Tile */}
+              <TouchableOpacity
+                style={styles.tile}
+                onPress={() => openDialer("789")}
+              >
+                <Image
+                  source={require("../../assets/favicon.png")}
+                  style={styles.icon}
+                />
+                <Text style={styles.tileText}>Navy</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -83,10 +119,15 @@ const styles = {
   top: {
     flex: 5,
     alignItems: "left",
+    paddingTop:20,
   },
   Header: {
-    margin:20,
+    marginLeft:20,
     fontSize:26,
+  },
+  HeaderSub:{
+    fontSize:16,
+    marginLeft:20
   },
   btncontainer:{
     flex:1,
@@ -101,31 +142,43 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
   },
+  circleTxt:{
+    fontSize:30,
+    color:'#FFF'
+  },
 
   bottom: {
     flex: 5,
+    padding:10,
+  },
+  otherBtn:{
+    flex:1,
   },
   tilescontainer: {
+    
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 16,
     marginTop: 20,
   },
   tile: {
     flex: 1,
-    backgroundColor: "#3498db",
+    backgroundColor: "black",
     borderRadius: 8,
     padding: 10,
+    margin:5,
     alignItems: "center",
   },
   icon: {
-    width: 50,
-    height: 50,
+    width: 25,
+    height: 25,
     marginBottom: 8,
   },
   tileText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  btmHeadTxt:{
+    fontSize:24
   },
 };

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { View,Text,StatusBar,SafeAreaView,StyleSheet,TextInput,TouchableOpacity, Alert,Image} from "react-native";
+import { View,Text,StyleSheet,TextInput,TouchableOpacity, Alert,Image} from "react-native";
 
 
 import Header from "./Header";
@@ -31,6 +31,7 @@ export default function EditUser(){
 
     return (
       <View style={styles.container}>
+      
       <Image
         source={require('../../assets/propic.jpg')}
         style={styles.image}

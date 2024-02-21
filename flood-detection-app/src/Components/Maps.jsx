@@ -12,7 +12,7 @@ export default function Maps(){
           <StatusBar backgroundColor="blue" barStyle="light-content" />
           <Header/>
           <View style={styles.container}>
-            <Text>Home Page Content</Text>
+            <Text>Map goes here</Text>
           </View>
         </SafeAreaView>
       );

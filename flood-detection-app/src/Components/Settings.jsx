@@ -92,7 +92,7 @@ export default function Settings() {
           <Text style={styles.text}>{userData.Name}</Text>
           <Text style={styles.text}>{userData.mbNo}</Text>
           <Text style={styles.text}>{userData.location}</Text>
-          <TouchableOpacity onPress={() =>{navigation.navigate('EditUser')}}>
+          <TouchableOpacity onPress={() =>{navigation.navigate('EditUser')}} style={styles.editbtn}>
             <Text>Set</Text>
           </TouchableOpacity>
           </View>
@@ -100,19 +100,16 @@ export default function Settings() {
         </View>
         <View style={styles.tbutttons}>
           <ToggleSwitch
-            label="Notification"
+            label="SMS Notification"
             value={isEnabledNotification}
             onValueChange={handleToggle}
+            icon={'envelope'}
           />
           <ToggleSwitch
             label="Notification"
             value={isEnabledNotification}
             onValueChange={handleToggle}
-          />
-          <ToggleSwitch
-            label="Notification"
-            value={isEnabledNotification}
-            onValueChange={handleToggle}
+            icon={'bell'}
           />
         </View>
       </View>
@@ -138,12 +135,15 @@ const styles = {
     width: "80%",
     paddingTop: 20,
     spaceBetween: 5,
-    borderBottomWidth: 4,
-    borderBottomColor: "blue",
+    borderBottomWidth: 2,
+    borderBottomColor: "black",
   },
   tbutttons: {
     flex: 1,
-    width: "80%",
+    width: "90%",
+    alignItems:'center',
+    justifyContent:'center',
+    
   },
   buttonContainer: {
     width: "60%",
@@ -162,16 +162,23 @@ propic:{
 },
 proedit:{
   flex:1,
-  alignItems:'center',
+  alignItems:'flex-start',
   justifyContent:'center',
   width:'60%'
 },
 image: {
-  width: 100, // Set the desired width
-  height: 100, // Set the desired height
-  resizeMode: 'cover', // or 'contain' or 'stretch' or 'center'
-  borderRadius: 50, // for a circular image, adjust as needed
-  marginRight: 10, // optional margin to separate the image from other content
+  width: 100, 
+  height: 100, 
+  resizeMode: 'cover', 
+  borderRadius: 50, 
+  marginRight: 10, 
+},
+editbtn:{
+  marginTop:20,
+  marginLeft:5,
+  backgroundColor:'green',
+  padding:10,
+  borderRadius:10,
 },
 
 };
