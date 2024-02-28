@@ -11,7 +11,7 @@ import {
 
 import Header from "./Header";
 
-export default function Imergency() {
+export default function Emergency() {
   const openDialer = (phoneNumber) => {
     Linking.openURL(`tel:${phoneNumber}`);
   };

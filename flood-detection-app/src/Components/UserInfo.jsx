@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ToastAndroid, Alert,ImageBackground} from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ToastAndroid, Alert,ImageBackground,ImageBackground} from "react-native";
 import { useUserId } from './UserIdProvider';
 
 import db from "../../db/fireStoredb";
@@ -61,10 +61,9 @@ export default function Userinfo({ navigation }) {
 
     };
 
-    const myImage = require('../../assets/Setthings.jpg');
+
 
     return (
-        <ImageBackground source={myImage} resizeMode="cover" style={styles.image}>
         <View style={styles.container}>
             <Text style={styles.heading}>Let's Set things Up</Text>
             <View style={styles.containerInfo}>

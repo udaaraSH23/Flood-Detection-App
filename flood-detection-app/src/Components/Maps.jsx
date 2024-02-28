@@ -1,7 +1,5 @@
 import React from "react";
 import { View,Text,StatusBar,SafeAreaView} from "react-native";
-
-
 import Header from "./Header";
 
 
