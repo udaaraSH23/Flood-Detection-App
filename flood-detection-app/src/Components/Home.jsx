@@ -52,6 +52,7 @@ export default function Home() {
       querySnapshot.forEach((doc) => {
         floodLevel.push({ id: doc.id, ...doc.data() });
       });
+      
       setLevel(floodLevel);
     } catch (error) {
       console.error("Error fetching", error);
@@ -66,6 +67,8 @@ export default function Home() {
       setSafeColor(lvl > 80 ? "red" : "white");
     }
   };
+
+  console.log()
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
@@ -88,14 +91,15 @@ export default function Home() {
                   <Text style={styles.locat}>
                     Location : {level.length > 0 ? level[0].Location : "N/A"}
                   </Text>
-                  <TouchableOpacity style={styles.refreshbtn}>
+                  {/* <TouchableOpacity style={styles.refreshbtn}>
                     <Icon
                       name="refresh"
                       size={24}
                       color="black"
+                      onPress={() =>updateWaterLevel()}
                       
                     />
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
                 </View>
               </ImageBackground>
             </View>
@@ -104,10 +108,13 @@ export default function Home() {
 
             <View style={styles.bottom}>
               <View style={styles.bottomleft}>
+                <Text style={styles.tbody}>This gives you current water level</Text>
                 <Text style={styles.flood}>Water Level</Text>
                 <Text style={styles.level}>
                   : {level.length > 0 ? level[0].WaterLvState : "N/A"} %
                 </Text>
+                
+                <Text style={styles.bbody}>Check for more information</Text>
                 <TouchableOpacity style={styles.checkbtn}>
                   <Text style={styles.checkTxt}>Check</Text>
                 </TouchableOpacity>
@@ -172,6 +179,17 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop:5,
 
+  },
+  body:{
+    fontSize:16,
+    marginTop:10
+  },
+  tbody:{
+    fontSize:16,
+    marginTop:15
+  },
+  bbody:{
+    fontSize:16
   },
   bottomleft: {
     

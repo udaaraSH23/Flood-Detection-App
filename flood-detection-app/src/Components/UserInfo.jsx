@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ToastAndroid, Alert } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ToastAndroid, Alert,ImageBackground } from "react-native";
 import { useUserId } from './UserIdProvider';
 
 import db from "../../db/fireStoredb";
@@ -61,9 +61,10 @@ export default function Userinfo({ navigation }) {
 
     };
 
-
+    const background = require('../../assets/background1.jpg')
 
     return (
+        <ImageBackground source={background} resizeMode="cover" style={styles.image}>
         <View style={styles.container}>
             <Text style={styles.heading}>Let's Set things Up</Text>
             <View style={styles.containerInfo}>
@@ -84,6 +85,7 @@ export default function Userinfo({ navigation }) {
                 </TouchableOpacity>
             </View>
         </View>
+        </ImageBackground>
     )
 }
 
@@ -93,6 +95,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    image: {
+        flex: 1,
+        justifyContent: 'center',
+      },
     heading: {
         fontSize: 36,
         fontWeight: 'bold',

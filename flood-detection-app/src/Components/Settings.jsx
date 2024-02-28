@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Alert,
   Image,
+  ImageBackground,
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 
@@ -75,12 +76,15 @@ export default function Settings() {
   };
 
 
+  const background = require('../../assets/water.jpg')
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <StatusBar backgroundColor="blue" barStyle="light-content" />
       <Header />
+      <ImageBackground source={background} resizeMode="cover" style={styles.backgroundimage}>
       <View style={styles.container}>
+        <Text>Edit your user information here</Text>
         <View style={styles.separator}>
           <View style={styles.propic}>
           <Image
@@ -99,6 +103,7 @@ export default function Settings() {
           
         </View>
         <View style={styles.tbutttons}>
+        <Text>Adjust the notification settings</Text>
           <ToggleSwitch
             label="SMS Notification"
             value={isEnabledNotification}
@@ -113,6 +118,7 @@ export default function Settings() {
           />
         </View>
       </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 }
@@ -179,6 +185,10 @@ editbtn:{
   backgroundColor:'green',
   padding:10,
   borderRadius:10,
+},
+backgroundimage: {
+  flex: 1,
+  justifyContent: 'center',
 },
 
 };

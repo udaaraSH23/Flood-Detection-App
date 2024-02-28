@@ -4,8 +4,9 @@ import Swiper from 'react-native-swiper';
 
 const SwiperCard = () => {
   const data = [
-    { text: 'Swift Alerts',image:require('../../assets/notifi.jpg'),subtxt:'Receive instant flood warnings' },
-    { text: 'Second App',image:require('../../assets/notifi.jpg'),subtxt:'Receive instant flood warnings'  },
+    { text: 'Swift Alerts',image:require('../../assets/swipe1.jpg'),subtxt:'Receive instant flood warnings' },
+    { text: 'Live Tracking',image:require('../../assets/swipe2.jpg'),subtxt:' Real-time water level updates.'  },
+    { text: 'Quick Setup',image:require('../../assets/swipe3.jpg'),subtxt:'Sign up easily'  }
   ];
 
   return (

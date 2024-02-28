@@ -6,9 +6,9 @@ import SwiperCard from "./SwiperCard";
 
 function StartUp({ navigation }) {
 
-  // const myImage = require('./water.jpg');
+  const myImage = require('../../assets/getstarted.jpg');
   return (
-    // <ImageBackground source={myImage} resizeMode="cover" style={styles.image}>
+    <ImageBackground source={myImage} resizeMode="cover" style={styles.image}>
     <View style={styles.container}>
       <View style={styles.top}>
       <Text style={
@@ -30,7 +30,7 @@ function StartUp({ navigation }) {
         
       
     </View>
-    // </ImageBackground>
+    </ImageBackground>
 
 
   )
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   textStyleHead: {
-    color:"#0F1035",
+    color:"#FFF",
     fontSize: 30,
     margin: 5,
     padding: 5,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
   },
   textHStyle: {
-    color:"#0F1035",
+    color:"#FFF",
     fontSize: 15,
     margin: 5,
     padding: 5,
@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#7FC7D9',
     padding: 10,
     borderRadius: 20,
+
     
   },
   buttonText: {

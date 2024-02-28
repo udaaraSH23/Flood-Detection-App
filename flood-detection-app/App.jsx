@@ -11,7 +11,7 @@ import { UserIdProvider } from "./src/Components/UserIdProvider";
 import StartUp from "./src/Components/StartUp";
 import UserInfo from "./src/Components/UserInfo";
 import Home from "./src/Components/Home";
-import Imergency from "./src/Components/Imergency";
+import Emergency from "./src/Components/Emergency";
 import Maps from "./src/Components/Maps";
 import Settings from "./src/Components/Settings";
 import About from "./src/Components/About";
@@ -23,7 +23,7 @@ const Tab = createBottomTabNavigator();
 
 //Startup status
 const isGetStarted = () => {
-  return true;
+  return false;
 };
 
 //Bottom Navigation
@@ -41,7 +41,7 @@ const BottomTabNavigator = () => {
         } else if (route.name === 'Home') {
           iconName = 'home';
           color ='#7FC7D9' 
-        } else if (route.name === 'Imergency') {
+        } else if (route.name === 'Emergency') {
           iconName = 'exclamation-triangle';
           color='red'; 
         }
@@ -60,7 +60,7 @@ const BottomTabNavigator = () => {
     >
       <Tab.Screen name="Maps" component={Maps} options={{ headerShown: false }}/>
       <Tab.Screen name="Home" component={Home} options={{ headerShown: false }}/>
-      <Tab.Screen name="Imergency" component={Imergency} options={{ headerShown: false }}/>
+      <Tab.Screen name="Emergency" component={Emergency} options={{ headerShown: false }}/>
     </Tab.Navigator>
   );
 };
@@ -125,7 +125,7 @@ export default function App() {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="EditProfile"
+              name="EditUser"
               component={EditUser}
               options={{ headerShown: false }}
             />
