@@ -6,9 +6,9 @@ import SwiperCard from "./SwiperCard";
 
 function StartUp({ navigation }) {
 
-  // const myImage = require('./water.jpg');
+  const myImage = require('../../assets/getstarted.jpg');
   return (
-    // <ImageBackground source={myImage} resizeMode="cover" style={styles.image}>
+    <ImageBackground source={myImage} resizeMode="cover" style={styles.image}>
     <View style={styles.container}>
       <View style={styles.top}>
       <Text style={
@@ -30,7 +30,7 @@ function StartUp({ navigation }) {
         
       
     </View>
-    // </ImageBackground>
+    </ImageBackground>
 
 
   )
