@@ -3,45 +3,45 @@ const admin = require('firebase-admin');
 
 admin.initializeApp();
 
-exports.sendNotificationOnWaterLevelChange = functions.firestore
-  .document('floodDetection/{floodId}')
+exports.sendEmergencyNotification = functions.database
+  .ref('/warningState/state')
   .onUpdate(async (change, context) => {
-    const newValue = change.after.data().waterLvState;
-    const oldValue = change.before.data().waterLvState;
+    const newValue = change.after.val();
+    const oldValue = change.before.val();
 
-    // Check if water level changed
-    if (newValue !== oldValue) {
-        const userCollect = admin.firestore().collection('users'); // Assuming floodId is the userId
-
+    // Check if the warning state changed to "emergency"
+    if (newValue === 'emergency' && newValue !== oldValue) {
       try {
-        // Retrieve the user document from the 'users' collection based on userId
-        
-        const userSnapshot = await admin.firestore().collection('users').doc(userId).get();
+        // Retrieve FCM tokens of all users from the 'users' node
+        const usersSnapshot = await admin.database().ref('/users').once('value');
+        const usersData = usersSnapshot.val();
 
-        if (userSnapshot.exists) {
-          const userData = userSnapshot.data();
-          const userToken = userData.fcmToken;
+        // Send notification to each user
+        Object.keys(usersData).forEach(userId => {
+          const user = usersData[userId];
+          const userToken = user.token;
 
           if (userToken) {
             const message = {
               token: userToken,
               notification: {
-                title: 'Water Level Changed!',
-                body: `New water level: ${newValue}`,
+                title: 'Emergency Alert!',
+                body: 'Emergency situation detected.',
               },
             };
 
             // Send the notification
-            await admin.messaging().send(message);
-            console.log('Notification sent successfully!');
-          } else {
-            console.log('FCM token not found for user:', userId);
+            admin.messaging().send(message)
+              .then(response => {
+                console.log('Notification sent successfully:', response);
+              })
+              .catch(error => {
+                console.error('Error sending notification:', error);
+              });
           }
-        } else {
-          console.log('User document not found for userId:', userId);
-        }
+        });
       } catch (error) {
-        console.error('Error retrieving user data:', error);
+        console.error('Error sending emergency notification:', error);
       }
     }
 

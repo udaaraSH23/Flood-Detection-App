@@ -23,7 +23,7 @@ const Tab = createBottomTabNavigator();
 
 //Startup status
 const isGetStarted = () => {
-  return true;
+  return false;
 };
 
 //Bottom Navigation

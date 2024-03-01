@@ -21,10 +21,24 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "googleServicesFile": "./google-services.json",
+      "package": "com.udarash.flooddetectionapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "expo": {
+      "plugins": [
+        "@react-native-firebase/app",
+        "@react-native-firebase/messaging",
+        "@react-native-firebase/app"
+      ]
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ab292be2-403e-4f91-afd0-c37af008d9df"
+      }
     }
   }
 }
