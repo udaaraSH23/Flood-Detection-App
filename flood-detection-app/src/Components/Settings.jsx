@@ -76,13 +76,14 @@ export default function Settings() {
   };
 
 
-  const background = require('../../assets/water.jpg')
+  const myImage = require('../../assets/settings.jpg')
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      
       <StatusBar backgroundColor="blue" barStyle="light-content" />
       <Header />
-      <ImageBackground source={background} resizeMode="cover" style={styles.backgroundimage}>
+      <ImageBackground source={myImage} resizeMode="cover" style={styles.ImageBackground}>
       <View style={styles.container}>
         <Text>Edit your user information here</Text>
         <View style={styles.separator}>
@@ -132,6 +133,10 @@ const styles = {
   text: {
     margin: 5,
     fontSize: 16,
+  },
+  ImageBackground: {
+    flex: 1,
+    justifyContent: 'center',
   },
   separator: {
     flex: 1,

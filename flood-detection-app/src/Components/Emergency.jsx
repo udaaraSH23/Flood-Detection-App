@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   Linking,
+  ImageBackground
 } from "react-native";
 
 import Header from "./Header";
@@ -16,10 +17,13 @@ export default function Emergency() {
     Linking.openURL(`tel:${phoneNumber}`);
   };
 
+  const myImage = require('../../assets/emergency.jpg');
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <StatusBar backgroundColor="blue" barStyle="light-content" />
       <Header />
+      <ImageBackground source={myImage} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
         <View style={styles.top}>
           <Text style={styles.Header}>Need help ? </Text>
@@ -108,6 +112,7 @@ export default function Emergency() {
           </View>
         </View>
       </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 }
@@ -115,6 +120,10 @@ export default function Emergency() {
 const styles = {
   container: {
     flex: 1,
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
   },
   top: {
     flex: 5,

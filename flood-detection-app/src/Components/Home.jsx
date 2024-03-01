@@ -70,8 +70,11 @@ export default function Home() {
 
   console.log()
 
+  const myImage = require('../../assets/homebackground.jpg');
   return (
+    
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      <ImageBackground source={myImage} resizeMode="cover" style={styles.image}>
       <StatusBar backgroundColor="blue" barStyle="light-content" />
       <Header />
       <View style={styles.container}>
@@ -79,9 +82,10 @@ export default function Home() {
           <ActivityIndicator size="large" color="blue" />
         ) : (
           <>
+          
             <View style={styles.topIamgeContainer}>
               <ImageBackground
-                source={require("../../assets/home2.jpg")}
+                source={require("../../assets/home_up.jpg")}
                 style={styles.top}
               >
                 <View style={styles.topContainer}>
@@ -120,13 +124,16 @@ export default function Home() {
                 </TouchableOpacity>
               </View>
               <View style={styles.bottomright}>
-                <WaterLevelBar />
+                <WaterLevelBar level={level[0].WaterLvState}/>
               </View>
             </View>
+            
           </>
         )}
       </View>
+      </ImageBackground>  
     </SafeAreaView>
+
   );
 }
 
@@ -136,12 +143,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   topIamgeContainer: {
     flex: 2,
     width: "100%",
     overflow: "hidden",
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
   },
   top: {
     justifyContent: "flex-start",
@@ -226,8 +237,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#365486",
     width: "40%",
     marginTop:150,
-    padding: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     borderRadius:20,
+    alignItems:"center",
+    justifyContent:'center',
   },
   checkTxt:{
     fontSize:18,

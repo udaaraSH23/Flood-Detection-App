@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { View,Text,StyleSheet,TextInput,TouchableOpacity, Alert,Image} from "react-native";
+import { View,Text,StyleSheet,TextInput,TouchableOpacity, Alert,Image,ImageBackground} from "react-native";
 
 
 import Header from "./Header";
@@ -29,7 +29,10 @@ export default function EditUser(){
       return true;
   };
 
+  const myImage = require('../../assets/editprofile.jpg');
+
     return (
+      <ImageBackground source={myImage} resizeMode="cover" style={styles.ImageBackground}>
       <View style={styles.container}>
       
       <Image
@@ -52,6 +55,7 @@ export default function EditUser(){
           </TouchableOpacity>
       </View>
   </View>
+  </ImageBackground>
 )
 }
 
@@ -59,6 +63,10 @@ const styles = StyleSheet.create({
 container: {
   flex: 1,
   alignItems: 'center',
+  justifyContent: 'center',
+},
+ImageBackground: {
+  flex: 1,
   justifyContent: 'center',
 },
 heading: {

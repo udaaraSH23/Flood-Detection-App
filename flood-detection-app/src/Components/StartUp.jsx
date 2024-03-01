@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   textStyleHead: {
-    color:"#FFF",
+    color:"black",
     fontSize: 30,
     margin: 5,
     padding: 5,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
   },
   textHStyle: {
-    color:"#FFF",
+    color:"black",
     fontSize: 15,
     margin: 5,
     padding: 5,
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonContainer: {
-    width: '60%',
-    backgroundColor: '#7FC7D9',
+    width: '50%',
+    backgroundColor: '#FFF',
     padding: 10,
     borderRadius: 20,
 
