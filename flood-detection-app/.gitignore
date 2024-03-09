@@ -35,8 +35,6 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-#ImageFiles
-*.jpg
 
 #google config
 google-service.json
