@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "327233330295",
+    "firebase_url": "https://flood-level-e24aa-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "flood-level-e24aa",
+    "storage_bucket": "flood-level-e24aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327233330295:android:54d2c921637eba8e22ba72",
+        "android_client_info": {
+          "package_name": "com.udarash.flooddetectionapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_4Y3ItrfLLRjZzNCouo1kOzdZWIzASYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
