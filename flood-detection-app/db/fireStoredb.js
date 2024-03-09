@@ -1,12 +1,14 @@
 import firebase from '@react-native-firebase/app';
+import { FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, FIREBASE_DATABASE_URL, FIREBASE_PROJECT_ID, FIREBASE_STORAGE_BUCKET, FIREBASE_MESSAGING_SENDER_ID, FIREBASE_APP_ID } from '@env';
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDGHkmh9TbZqKP54zElSVGcuzxRNoZsfZo",
-  authDomain: "flood-level-e24aa.firebaseapp.com",
-  databaseURL: "https://flood-level-e24aa-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "flood-level-e24aa",
-  storageBucket: "flood-level-e24aa.appspot.com",
-  messagingSenderId: "327233330295",
-  appId: "1:327233330295:web:67bb2ed388dcd63d22ba72"
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  databaseURL: FIREBASE_DATABASE_URL,
+  projectId: FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
+  appId: FIREBASE_APP_ID,
 };
 
 // Initialize Firebase ====================================================================================

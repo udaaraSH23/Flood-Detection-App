@@ -1,35 +1,41 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 
+
 import SwiperCard from "./SwiperCard";
 
 
 function StartUp({ navigation }) {
 
   const myImage = require('../../assets/getstarted.jpg');
+
+
   return (
     <ImageBackground source={myImage} resizeMode="cover" style={styles.image}>
-    <View style={styles.container}>
-      <View style={styles.top}>
-      <Text style={
-          styles.textStyleHead}>Welcome to Flood Sentinal</Text>
+      <View style={styles.container}>
+        <View style={styles.top}>
           <Text style={
-          styles.textHStyle}>Flood Prediction made easy</Text>
-      </View>
-      <View style={styles.swiperstyle}>
-          <SwiperCard/>
-          </View>
-        <View style={styles.bottom}>
-          
-        
-        <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('UserInfo')}>
-
-          <Text style={styles.buttonText}>Get Started</Text>
-        </TouchableOpacity>
+            styles.textStyleHead}>Welcome to Flood Sentinal</Text>
+          <Text style={
+            styles.textHStyle}>Flood Prediction made easy</Text>
         </View>
-        
-      
-    </View>
+        <View style={styles.swiperstyle}>
+          <SwiperCard />
+        </View>
+        <View style={styles.bottom}>
+
+
+          <TouchableOpacity style={styles.buttonContainer} onPress={async () => {
+              
+              navigation.navigate('UserInfo');
+            }}>
+
+            <Text style={styles.buttonText}>Get Started</Text>
+          </TouchableOpacity>
+        </View>
+
+
+      </View>
     </ImageBackground>
 
 
@@ -48,38 +54,40 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  top:{
-    flex:5,
-    padding:20,
+  top: {
+    flex: 5,
+    padding: 20,
     alignItems: 'center',
     justifyContent: 'center'
   },
   textStyleHead: {
-    color:"black",
+    color: "black",
     fontSize: 30,
     margin: 5,
     padding: 5,
     textAlign: 'center',
     fontFamily: 'Roboto',
+    fontWeight: 'bold'
   },
   textHStyle: {
-    color:"black",
+    color: "black",
     fontSize: 15,
     margin: 5,
     padding: 5,
-    fontStyle:'italic',
+    fontStyle: 'italic',
     textAlign: 'center',
     fontFamily: 'Roboto',
+    fontWeight: "700"
   },
-  swiperstyle:{
-    flex:4,
-    backgroundColor:'#0F1035',
-    borderTopLeftRadius:40,
-    borderTopRightRadius:40,
+  swiperstyle: {
+    flex: 4,
+    backgroundColor: '#0F1035',
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
   },
   bottom: {
     flex: 2,
-    backgroundColor:'#0F1035',
+    backgroundColor: '#0F1035',
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -90,7 +98,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 20,
 
-    
+
   },
   buttonText: {
     color: '#0F1035',

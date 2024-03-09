@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "flood-detection-app",
+    "name": "Flood Sentinal",
     "slug": "flood-detection-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon.jpeg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, Image, ImageBackground } from "react-native";
 
-import { useUserId } from "./UserIdProvider";
+import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import database from '@react-native-firebase/database';
 
 
@@ -11,11 +12,35 @@ export default function EditUser() {
   const [MobileNo, setMobileNo] = useState('');
   const [location, setLocation] = useState('');
 
+  const navigation = useNavigation();
 
-  const { userId } = useUserId();
 
+  const [userId, setUserId] = useState('');
 
-  //Settings for updatings username and info
+  const getuserId = async () => {
+    try {
+      const value = await AsyncStorage.getItem('id');
+      console.log(value);
+      if (value !== null) {
+        return value; // Return the retrieved value
+      } else {
+        console.log('No data found');
+        return ''; // Return false if no data is found
+      }
+    } catch (error) {
+      console.error('Error retrieving data: ', error);
+      return ''; // Return false if an error occurs
+    }
+  };
+
+  useEffect(() =>{
+    async function getUserInfo() {
+      const id = await getuserId(); // Wait for the user ID
+      setUserId(id); // Set the user ID state
+      
+  }
+  getUserInfo();
+},[]);
   //Update Firebase 
   const updateUsernameInFirestore = async () => {
     try {
@@ -24,7 +49,7 @@ export default function EditUser() {
         .update({
           name: Name,
           mbNo: MobileNo,
-          Loc:location
+          Loc: location
         })
         .then(() => console.log('Data set.'));
     } catch (error) {
@@ -59,6 +84,7 @@ export default function EditUser() {
           source={require('../../assets/propic.jpg')}
           style={styles.image}
         />
+        <Text style={styles.body} >Hello User</Text>
         <View style={styles.containerInfo}>
           <Text style={styles.body} >What is Your Name ?</Text>
           <TextInput placeholder="John Doe" style={styles.txtinputs} onChangeText={n => setName(n)} />
@@ -69,10 +95,17 @@ export default function EditUser() {
           <TouchableOpacity style={styles.buttonContainer} onPress={() => {
             if (validTextInput()) {
               updateUsernameInFirestore();
-              Alert.alert('Alert', 'User Edited')
+              Alert.alert('User Info Changed', 'You will be re-direct to home', [
+                {
+                  text: 'OK',
+                  onPress: () => navigation.navigate('Home')
+                }
+              ],
+              )
+
             }
           }}>
-            <Text style={styles.buttonText}>Set</Text>
+            <Text style={styles.buttonText}>Edit Information</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -97,10 +130,11 @@ const styles = StyleSheet.create({
     color: "#0F1035"
   },
   body: {
-    fontSize: 20,
+    fontSize: 16,
     marginTop: 10,
     marginBottom: 10,
-    color: "#0F1035"
+    color: "#0F1035",
+    fontWeight:'700'
   },
   txtinputs: {
     marginTop: 10,
@@ -113,13 +147,14 @@ const styles = StyleSheet.create({
   ,
   buttonContainer: {
     marginTop: 100,
-    backgroundColor: '#7FC7D9',
+    backgroundColor: '#0F1035',
     padding: 10,
     borderRadius: 20,
+    
   }
   ,
   buttonText: {
-    color: "#0F1035",
+    color: "#FFF",
     textAlign: 'center',
     fontWeight: 'bold',
   },

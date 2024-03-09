@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {StyleSheet,SafeAreaView} from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 import { UserIdProvider } from "./src/Components/UserIdProvider";
@@ -21,9 +22,20 @@ import EditUser from "./src/Components/EditUser";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-//Startup status
-const isGetStarted = () => {
-  return false;
+//Startup status retrieve from local starage
+const isGetStarted = async () => {
+  try {
+    const value = await AsyncStorage.getItem('key');
+    if (value !== null) {
+      return value; // Return the retrieved value
+    } else {
+      console.log('No data found');
+      return false; // Return false if no data is found
+    }
+  } catch (error) {
+    console.error('Error retrieving data: ', error);
+    return false; // Return false if an error occurs
+  }
 };
 
 //Bottom Navigation
@@ -67,7 +79,14 @@ const BottomTabNavigator = () => {
 
 export default function App() {
   //Check for get started Status
-  const isStarted = isGetStarted();
+  const [isStarted, setIsStarted] = useState(false);
+
+  useEffect(() => {
+    isGetStarted().then((data) => {
+      setIsStarted(data);
+    });
+  }, []);
+  
 
   return (
     <SafeAreaView style={style.container}>

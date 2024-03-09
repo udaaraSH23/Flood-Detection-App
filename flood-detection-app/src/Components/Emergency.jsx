@@ -44,7 +44,7 @@ export default function Emergency() {
                 onPress={() => openDialer("123")}
               >
                 <Image
-                  source={require("../../assets/favicon.png")}
+                  source={require("../../assets/army.jpg")}
                   style={styles.icon}
                 />
                 <Text style={styles.tileText}>Army</Text>
@@ -55,10 +55,10 @@ export default function Emergency() {
                 onPress={() => openDialer("456")}
               >
                 <Image
-                  source={require("../../assets/favicon.png")}
+                  source={require("../../assets/navy.jpg")}
                   style={styles.icon}
                 />
-                <Text style={styles.tileText}>Police</Text>
+                <Text style={styles.tileText}>Navy</Text>
               </TouchableOpacity>
 
               {/* Navy Tile */}
@@ -67,10 +67,10 @@ export default function Emergency() {
                 onPress={() => openDialer("789")}
               >
                 <Image
-                  source={require("../../assets/favicon.png")}
+                  source={require("../../assets/airforce.jpg")}
                   style={styles.icon}
                 />
-                <Text style={styles.tileText}>Navy</Text>
+                <Text style={styles.tileText}>Air force</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.tilescontainer}>
@@ -80,10 +80,10 @@ export default function Emergency() {
                 onPress={() => openDialer("123")}
               >
                 <Image
-                  source={require("../../assets/favicon.png")}
+                  source={require("../../assets/police.jpg")}
                   style={styles.icon}
                 />
-                <Text style={styles.tileText}>Army</Text>
+                <Text style={styles.tileText}>Police</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -91,10 +91,10 @@ export default function Emergency() {
                 onPress={() => openDialer("456")}
               >
                 <Image
-                  source={require("../../assets/favicon.png")}
+                  source={require("../../assets/firebrig.jpg")}
                   style={styles.icon}
                 />
-                <Text style={styles.tileText}>Police</Text>
+                <Text style={styles.tileText}>Fire Brigade</Text>
               </TouchableOpacity>
 
               {/* Navy Tile */}
@@ -103,10 +103,10 @@ export default function Emergency() {
                 onPress={() => openDialer("789")}
               >
                 <Image
-                  source={require("../../assets/favicon.png")}
+                  source={require("../../assets/ambulance.jpg")}
                   style={styles.icon}
                 />
-                <Text style={styles.tileText}>Navy</Text>
+                <Text style={styles.tileText}>Ambulance</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -133,10 +133,12 @@ const styles = {
   Header: {
     marginLeft:20,
     fontSize:26,
+    fontWeight:'500',
   },
   HeaderSub:{
     fontSize:16,
-    marginLeft:20
+    marginLeft:20,
+    fontWeight:'400',
   },
   btncontainer:{
     flex:1,
@@ -171,23 +173,28 @@ const styles = {
   },
   tile: {
     flex: 1,
-    backgroundColor: "black",
+    
     borderRadius: 8,
-    padding: 10,
+    padding: 5,
     margin:5,
     alignItems: "center",
   },
   icon: {
-    width: 25,
-    height: 25,
+    width: 60,
+    height: 60,
     marginBottom: 8,
+    resizeMode:'cover',
+    borderRadius:10,
+    borderWidth:2,
+    borderColor:'black'
   },
   tileText: {
-    color: "#fff",
+    color: "black",
     fontSize: 16,
     fontWeight: "bold",
   },
   btmHeadTxt:{
-    fontSize:24
+    fontSize:24,
+    fontWeight:'500',
   },
 };

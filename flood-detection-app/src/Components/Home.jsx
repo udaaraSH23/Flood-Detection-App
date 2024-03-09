@@ -30,7 +30,7 @@ export default function Home() {
         const data = snapshot.val();
         if (data) {
           setLevel(data);
-          setSafeColor(data.WaterLvState > 80 ? "red" : "white");
+          setSafeColor(data.WaterLvState > 80 ? "red" : "blue");
           setLoading(false);
 
         }
@@ -87,20 +87,12 @@ export default function Home() {
                 >
                   <View style={styles.topContainer}>
                     <Text style={[styles.safe, { color: safeColor }]}>
-                      You are Safe
+                    {level.WaterLvState > 80 ? "You are in Danger" : "You are Safe"}
                     </Text>
                     <Text style={styles.locat}>
                       Location : {level.Location}
                     </Text>
-                    {/* <TouchableOpacity style={styles.refreshbtn}>
-                    <Icon
-                      name="refresh"
-                      size={24}
-                      color="black"
-                      onPress={() =>updateWaterLevel()}
-                      
-                    />
-                  </TouchableOpacity> */}
+                    
                   </View>
                 </ImageBackground>
               </View>
@@ -112,7 +104,7 @@ export default function Home() {
                   <Text style={styles.tbody}>This gives you current water level</Text>
                   <Text style={styles.flood}>Water Level</Text>
                   <Text style={styles.level}>
-                    : {level != null ? level.WaterLvState : "N/A"} %
+                     {level != null ? level.WaterLvState : "N/A"} %
                   </Text>
 
                   <Text style={styles.bbody}>Check for more information</Text>
@@ -143,6 +135,7 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: 'center',
+    
   },
   topIamgeContainer: {
     flex: 2,
@@ -150,6 +143,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
+    
   },
   top: {
     justifyContent: "flex-start",
@@ -157,29 +151,21 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     width: "100%",
     height: "100%",
+    
+    
   },
   topContainer: {
     flex: 1,
     width: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.1)",
     paddingLeft: 20,
-  },
-  refreshbtn: {
-    padding: 10,
-    marginTop: 20,
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: "#FFF",
-
+    
   },
   topBorder: {
     marginTop: 20,
     borderTopWidth: 2,
-    borderTopColor: 'blue',
-    width: '50%',
+    borderTopColor: 'black',
+    width: '70%',
   },
   bottom: {
     flex: 4,
@@ -190,14 +176,21 @@ const styles = StyleSheet.create({
   },
   body: {
     fontSize: 16,
-    marginTop: 10
+    marginTop: 10,
+    
   },
   tbody: {
     fontSize: 16,
-    marginTop: 15
+    marginTop: 15,
+    fontWeight:'500',
+    marginBottom:10,
+    color:'blue'
   },
   bbody: {
-    fontSize: 16
+    fontSize: 16,
+    fontWeight:'500',
+    marginTop:20,
+    color:'black'
   },
   bottomleft: {
 
@@ -210,7 +203,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: 'center',
     paddingTop: 30,
-    paddingBottom: 30,
+    paddingBottom: 20,
+    
   },
   flood: {
     fontSize: 36,
@@ -219,7 +213,8 @@ const styles = StyleSheet.create({
   },
   locat: {
     fontSize: 18,
-    color: "#FFF",
+    fontWeight:'500',
+    color:'black'
   },
   level: {
     fontSize: 20,
@@ -233,17 +228,18 @@ const styles = StyleSheet.create({
   checkbtn: {
     backgroundColor: "#365486",
     width: "40%",
-    marginTop: 150,
+    marginTop: 10,
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 10,
     paddingBottom: 10,
-    borderRadius: 20,
+    borderRadius: 10,
     alignItems: "center",
     justifyContent: 'center',
   },
   checkTxt: {
-    fontSize: 18,
-    color: '#FFF'
+    fontSize: 14,
+    color: '#FFF',
+    fontWeight:'500'
   },
 });

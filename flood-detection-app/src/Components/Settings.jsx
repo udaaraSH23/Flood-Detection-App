@@ -12,10 +12,9 @@ import {
 import { useNavigation } from '@react-navigation/native';
 
 import ToggleSwitch from "./ToggleSwitch";
-import { useUserId } from "./UserIdProvider";
 
 import database from '@react-native-firebase/database';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Header from "./Header";
 
 export default function Settings() {
@@ -32,35 +31,52 @@ export default function Settings() {
 
   //Update user info when settings component mounts
   const [userData, setUserData] = useState({
-    name: "Null",
-    mbNo: "Null",
-    Loc: "Null",
+    name: "User",
+    mbNo: "0000",
+    Loc: "None",
   });
 
   //Global User Id State
-  const { userId } = useUserId();
+  const [userId, setUserId] = useState('');
+
+  const getuserId = async () => {
+    try {
+      const value = await AsyncStorage.getItem('id');
+      console.log(value);
+      if (value !== null) {
+        return value; // Return the retrieved value
+      } else {
+        console.log('No data found');
+        return ''; // Return false if no data is found
+      }
+    } catch (error) {
+      console.error('Error retrieving data: ', error);
+      return ''; // Return false if an error occurs
+    }
+  };
 
   useEffect(() => {
     async function getUserInfo() {
+      const id = await getuserId(); // Wait for the user ID
+      setUserId(id); // Set the user ID state
 
       try {
-
         // Create a reference to the specific user node in the Realtime Database
-        database()
-          .ref(`/users/${userId}`)
-          .once('value')
-          .then(snapshot => {
-            setUserData(snapshot.val());
-          });
-
+        if (id) {
+          database()
+            .ref(`/users/${id}`)
+            .once('value')
+            .then(snapshot => {
+              setUserData(snapshot.val());
+            });
         }
-       catch (error) {
+      } catch (error) {
         console.error('Error retrieving user information:', error);
-        throw error;
       }
     }
 
-    getUserInfo();
+    getUserInfo(); // Call getUserInfo directly inside useEffect
+
   }, []);
 
 
@@ -74,7 +90,7 @@ export default function Settings() {
       <Header />
       <ImageBackground source={myImage} resizeMode="cover" style={styles.ImageBackground}>
         <View style={styles.container}>
-          <Text>Edit your user information here</Text>
+          <Text style={styles.hdngTxt}>Edit your user information here</Text>
           <View style={styles.separator}>
             <View style={styles.propic}>
               <Image
@@ -83,21 +99,27 @@ export default function Settings() {
               />
             </View>
             <View style={styles.proedit}>
+              <Text style={styles.texth}>Your information</Text>
               <Text style={styles.text}>{userData.name}</Text>
               <Text style={styles.text}>{userData.mbNo}</Text>
               <Text style={styles.text}>{userData.Loc}</Text>
               <TouchableOpacity onPress={() => { navigation.navigate('EditUser') }} style={styles.editbtn}>
-                <Text>Set</Text>
+                <Text style={styles.btnText}>Set</Text>
               </TouchableOpacity>
             </View>
 
           </View>
           <View style={styles.tbutttons}>
-            <Text>Adjust the notification settings</Text>
+            <Text style={styles.hdngTxt}>Adjust the notification settings</Text>
             <ToggleSwitch
               label="SMS Notification"
-              value={isEnabledNotification}
-              onValueChange={handleToggle}
+              value={false}
+              onValueChange={() => {
+                Alert.alert(
+                  "SMS Notification",
+                  "Currently not available"
+                );
+              }}
               icon={'envelope'}
             />
             <ToggleSwitch
@@ -119,10 +141,24 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
   },
+  hdngTxt: {
+    fontSize: 16,
+    fontWeight: '700',
+    marginBottom: 10,
+    marginTop: 10,
+
+  },
   text: {
     margin: 5,
     fontSize: 16,
+    fontWeight: '500',
   },
+  texth: {
+    margin: 5,
+    fontSize: 16,
+    fontWeight: '700',
+  },
+
   ImageBackground: {
     flex: 1,
     justifyContent: 'center',
@@ -133,9 +169,8 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     width: "80%",
-    paddingTop: 20,
     spaceBetween: 5,
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     borderBottomColor: "black",
   },
   tbutttons: {
@@ -164,7 +199,10 @@ const styles = {
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'center',
-    width: '60%'
+    width: '60%',
+    borderLeftWidth: 1,
+    paddingLeft: 10,
+
   },
   image: {
     width: 100,
@@ -176,9 +214,13 @@ const styles = {
   editbtn: {
     marginTop: 20,
     marginLeft: 5,
-    backgroundColor: 'green',
+    backgroundColor: 'blue',
     padding: 10,
     borderRadius: 10,
+  },
+  btnText: {
+    color: 'white',
+    fontWeight: '500'
   },
   backgroundimage: {
     flex: 1,
